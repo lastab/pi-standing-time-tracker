@@ -7,8 +7,6 @@ import requests
 
 GPIO.setmode(GPIO.BCM)
 
-sleepTime = .1
-
 # GPIO Pin of the component
 lightPin = 18
 buttonPin = 17
@@ -27,10 +25,12 @@ sleep(.2)
 GPIO.output(lightPin, False)
 sleep(0.2)
 GPIO.output(lightPin, True)
-sleep(.1)
+sleep(1)
 GPIO.output(lightPin, False)
 
 inputStatus = GPIO.input(buttonPin)
+
+print("Standing Time Tracking System has been activated...")
 try:
 
   while True:
@@ -53,4 +53,4 @@ try:
 finally:
   GPIO.output(lightPin, False)
   GPIO.cleanup()
- 
+  print("Standing Time Tracking System stopped.")
