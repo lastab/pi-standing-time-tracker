@@ -11,7 +11,7 @@ GPIO.setmode(GPIO.BCM)
 lightPin = 18
 buttonPin = 17
 
-startTime = None
+startTime = datetime.datetime.now()
 endTime = None
 
 GPIO.setup(lightPin, GPIO.OUT)
