@@ -37,9 +37,10 @@ print("Standing Time Tracking System has been activated...")
 try:
 
   while True:
+    inputStatus = GPIO.input(buttonPin)
     # if input status changed
     if inputStatus != previousInputStatus:
-      inputStatus = previousInputStatus
+      previousInputStatus = inputStatus
       if inputStatus == True:
         # if pressure plate is no pressed
         print("input changed to false")
@@ -50,8 +51,8 @@ try:
         print("duration Minutes: {:d}, Seconds: {:d}").format(minutes, seconds)
         try:
           r = requests.post("https://secure-chamber-61971.herokuapp.com/create", data={'start_at': str(startTime), 'end_at': str(endTime)})
-        finally:
-          puts("Post request failed.")
+        except:
+          print("Post request failed.")
         print(r.status_code)
       else:
         # if pressure plate pressed
@@ -63,7 +64,7 @@ try:
 
 
     # Blink led if swithc is turned off
-    if inputStatus == False:
+    if inputStatus == True:
       led_bulb = not led_bulb
       GPIO.output(lightPin, led_bulb)
 
