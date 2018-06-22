@@ -8,8 +8,8 @@ import requests
 GPIO.setmode(GPIO.BCM)
 
 # GPIO Pin of the component
-lightPin = 18
-buttonPin = 17
+lightPin = 17
+buttonPin = 4
 
 startTime = datetime.datetime.now()
 endTime = None
