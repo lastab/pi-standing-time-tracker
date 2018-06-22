@@ -18,17 +18,6 @@ led_bulb = False
 
 GPIO.setup(lightPin, GPIO.OUT)
 GPIO.setup(buttonPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.output(lightPin, True)
-sleep(.3)
-GPIO.output(lightPin, False)
-sleep(.3)
-GPIO.output(lightPin, True)
-sleep(.2)
-GPIO.output(lightPin, False)
-sleep(.2)
-GPIO.output(lightPin, True)
-sleep(.2)
-GPIO.output(lightPin, False)
 
 inputStatus = GPIO.input(buttonPin)
 previousInputStatus = GPIO.input(buttonPin)
