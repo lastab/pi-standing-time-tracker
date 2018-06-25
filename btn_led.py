@@ -39,10 +39,10 @@ try:
         minutes, seconds = divmod(difference.days * 86400 + difference.seconds, 60)
         print("duration Minutes: {:d}, Seconds: {:d}").format(minutes, seconds)
         try:
-          r = requests.post("https://secure-chamber-61971.herokuapp.com/create", data={'start_at': str(startTime), 'end_at': str(endTime)})
+          r = requests.post("https://secure-chamber-61971.herokuapp.com/end", data={'start_at': str(startTime), 'end_at': str(endTime)})
+          print(r.status_code)
         except:
           print("Post request failed.")
-        print(r.status_code)
       else:
         # if pressure plate pressed
         print("input changed to true")
@@ -50,6 +50,12 @@ try:
 
         # Turn on LED
         GPIO.output(lightPin, True)
+
+        try:
+          r = requests.post("https://secure-chamber-61971.herokuapp.com/start", data={'start_at': str(startTime)})
+          print(r.status_code)
+        except:
+          print("Post request failed.")
 
 
     # Blink led if swithc is turned off
