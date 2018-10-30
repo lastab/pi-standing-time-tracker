@@ -6,3 +6,7 @@ The program uses:
 - GPIO18 pin as LED.
 
 the duration log can be viewed at: [here](https://secure-chanber-61971.herokuapp.com)
+
+# TODO
+[] Add fingerprint identification of user [link](https://tutorials-raspberrypi.com/how-to-use-raspberry-pi-fingerprint-sensor-authentication/)
+[] send user identification on api
