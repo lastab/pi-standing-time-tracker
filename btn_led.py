@@ -7,7 +7,6 @@ import requests
 
 GPIO.setmode(GPIO.BCM)
 
-# GPIO Pin of the component
 lightPin = 17
 buttonPin = 4
 
@@ -72,3 +71,4 @@ finally:
   GPIO.cleanup()
 
   print("Standing Time Tracking System stopped.")
+# The end
